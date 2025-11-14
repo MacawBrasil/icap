@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +78,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -84,8 +86,12 @@ export interface Config {
   db: {
     defaultIDType: string;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    page: Page;
+  };
+  globalsSelect: {
+    page: PageSelect<false> | PageSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -158,6 +164,23 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv".
+ */
+export interface PayloadKv {
+  id: string;
+  key: string;
+  data:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -170,6 +193,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: string | Media;
+      } | null)
+    | ({
+        relationTo: 'payload-kv';
+        value: string | PayloadKv;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -255,6 +282,14 @@ export interface MediaSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-kv_select".
+ */
+export interface PayloadKvSelect<T extends boolean = true> {
+  key?: T;
+  data?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents_select".
  */
 export interface PayloadLockedDocumentsSelect<T extends boolean = true> {
@@ -284,6 +319,347 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page".
+ */
+export interface Page {
+  id: string;
+  header: {
+    doctorAccess: string;
+    patientAccess: string;
+    logo: string | Media;
+  };
+  hero: {
+    heroTitle: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    heroDescription: string;
+    heroImage: string | Media;
+  };
+  exams: {
+    examsDescription: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    itens: {
+      icon: string | Media;
+      title: string;
+      description: {
+        root: {
+          type: string;
+          children: {
+            type: any;
+            version: number;
+            [k: string]: unknown;
+          }[];
+          direction: ('ltr' | 'rtl') | null;
+          format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+          indent: number;
+          version: number;
+        };
+        [k: string]: unknown;
+      };
+      mediaLayout: (
+        | {
+            file: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Video';
+          }
+        | {
+            file: string | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'Image';
+          }
+        | {
+            url: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'VideoUrl';
+          }
+      )[];
+      id?: string | null;
+    }[];
+  };
+  about: {
+    aboutTitle: string;
+    aboutDescription: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    aboutImage: string | Media;
+    items: {
+      title: string;
+      image: string | Media;
+      id?: string | null;
+    }[];
+    structure: {
+      image: string | Media;
+      id?: string | null;
+    }[];
+    agreements: {
+      image: string | Media;
+      id?: string | null;
+    }[];
+  };
+  certifications: {
+    certificationDescription: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+  };
+  faq: {
+    section: {
+      title: string;
+      aswersAndQuestions: {
+        question: string;
+        answer: {
+          root: {
+            type: string;
+            children: {
+              type: any;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[];
+      id?: string | null;
+    }[];
+  };
+  footer: {
+    footerLogo: string | Media;
+    footerTitle: string;
+    footerDescription: string;
+    privacyPolicy: string | Media;
+    terms: string | Media;
+  };
+  contact: {
+    contactDescription: string;
+    address: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    email: string;
+    recipientEmail: string;
+    phones: {
+      phone: string;
+      id?: string | null;
+    }[];
+    whatsapp: string;
+  };
+  social: {
+    facebook: string;
+    instagram: string;
+    linkedin: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "page_select".
+ */
+export interface PageSelect<T extends boolean = true> {
+  header?:
+    | T
+    | {
+        doctorAccess?: T;
+        patientAccess?: T;
+        logo?: T;
+      };
+  hero?:
+    | T
+    | {
+        heroTitle?: T;
+        heroDescription?: T;
+        heroImage?: T;
+      };
+  exams?:
+    | T
+    | {
+        examsDescription?: T;
+        itens?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              mediaLayout?:
+                | T
+                | {
+                    Video?:
+                      | T
+                      | {
+                          file?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    Image?:
+                      | T
+                      | {
+                          file?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                    VideoUrl?:
+                      | T
+                      | {
+                          url?: T;
+                          id?: T;
+                          blockName?: T;
+                        };
+                  };
+              id?: T;
+            };
+      };
+  about?:
+    | T
+    | {
+        aboutTitle?: T;
+        aboutDescription?: T;
+        aboutImage?: T;
+        items?:
+          | T
+          | {
+              title?: T;
+              image?: T;
+              id?: T;
+            };
+        structure?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+        agreements?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+      };
+  certifications?:
+    | T
+    | {
+        certificationDescription?: T;
+      };
+  faq?:
+    | T
+    | {
+        section?:
+          | T
+          | {
+              title?: T;
+              aswersAndQuestions?:
+                | T
+                | {
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+              id?: T;
+            };
+      };
+  footer?:
+    | T
+    | {
+        footerLogo?: T;
+        footerTitle?: T;
+        footerDescription?: T;
+        privacyPolicy?: T;
+        terms?: T;
+      };
+  contact?:
+    | T
+    | {
+        contactDescription?: T;
+        address?: T;
+        email?: T;
+        recipientEmail?: T;
+        phones?:
+          | T
+          | {
+              phone?: T;
+              id?: T;
+            };
+        whatsapp?: T;
+      };
+  social?:
+    | T
+    | {
+        facebook?: T;
+        instagram?: T;
+        linkedin?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

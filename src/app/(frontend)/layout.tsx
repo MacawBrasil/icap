@@ -1,17 +1,18 @@
 import React from 'react'
-import './styles.css'
+import './globals.css'
+import { Wix_Madefor_Text } from 'next/font/google'
 
-export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
-}
+const WixFont = Wix_Madefor_Text({
+  subsets: ['latin'],
+  style: ['normal'],
+})
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
   return (
     <html lang="en">
-      <body>
+      <body className={WixFont.className}>
         <main>{children}</main>
       </body>
     </html>
