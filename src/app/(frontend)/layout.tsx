@@ -10,6 +10,8 @@ const WixFont = Wix_Madefor_Text({
   style: ['normal'],
 })
 
+export const dynamic = 'force-dynamic'
+
 export async function generateMetadata(): Promise<Metadata> {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
@@ -70,44 +72,8 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
 
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
-
-  const page = await payload.findGlobal({
-    slug: 'page',
-    depth: 2,
-  })
-
-  // Dados estruturados (JSON-LD) para SEO
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'MedicalClinic',
-    name: 'ICAP - Instituto de Citologia e Anatomia Patológica',
-    description: page.seo?.description || '',
-    url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.icap.com.br',
-    logo:
-      page.header?.logo && typeof page.header.logo !== 'string' ? page.header.logo.url : undefined,
-    image: page.seo?.image && typeof page.seo.image !== 'string' ? page.seo.image.url : undefined,
-    telephone: page.contact?.phones?.[0]?.phone || '',
-    email: page.contact?.email || '',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: 'Novo Hamburgo',
-      addressRegion: 'RS',
-      addressCountry: 'BR',
-    },
-    sameAs: [page.social?.facebook, page.social?.instagram, page.social?.linkedin].filter(Boolean),
-    medicalSpecialty: ['Pathology', 'Cytology'],
-  }
-
   return (
     <html lang="pt-BR">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body className={WixFont.className}>
         <main>{children}</main>
       </body>
