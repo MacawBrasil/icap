@@ -2,7 +2,6 @@ import { Page } from '@/payload-types'
 import { Container } from './container'
 import RichText from './RichText'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion'
-import { Media } from './Media'
 import Image from 'next/image'
 
 interface ExamesProps {

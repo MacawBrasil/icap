@@ -4,7 +4,6 @@ import { useState } from 'react'
 import Lightbox from 'yet-another-react-lightbox'
 import 'yet-another-react-lightbox/styles.css'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
-import { Media } from '@/components/Media'
 import { Media as MediaPayload } from '@/payload-types'
 import Image from 'next/image'
 

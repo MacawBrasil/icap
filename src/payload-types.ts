@@ -551,6 +551,18 @@ export interface Page {
     instagram: string;
     linkedin: string;
   };
+  seo: {
+    title: string;
+    description: string;
+    keywords: {
+      keyword: string;
+      id?: string | null;
+    }[];
+    /**
+     * Imagem que será exibida quando o site for compartilhado nas redes sociais. Tamanho recomendado: 1200x630px
+     */
+    image?: (string | null) | Media;
+  };
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -696,6 +708,19 @@ export interface PageSelect<T extends boolean = true> {
         facebook?: T;
         instagram?: T;
         linkedin?: T;
+      };
+  seo?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        keywords?:
+          | T
+          | {
+              keyword?: T;
+              id?: T;
+            };
+        image?: T;
       };
   updatedAt?: T;
   createdAt?: T;

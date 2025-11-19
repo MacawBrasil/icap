@@ -3,7 +3,6 @@
 import Link from 'next/link'
 import { MobileMenu } from './MobileMenu'
 import { Container } from './container'
-import { Media } from './Media'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 

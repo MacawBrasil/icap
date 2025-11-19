@@ -423,6 +423,49 @@ export const Page: GlobalConfig = {
             },
           ],
         },
+        {
+          name: 'seo',
+          label: 'SEO',
+          fields: [
+            {
+              name: 'title',
+              label: 'Título',
+              type: 'text',
+              required: true,
+            },
+            {
+              name: 'description',
+              label: 'Descrição',
+              type: 'textarea',
+              required: true,
+            },
+            {
+              name: 'keywords',
+              label: 'Palavras-chave',
+              type: 'array',
+              fields: [
+                {
+                  name: 'keyword',
+                  label: 'Palavra-chave',
+                  type: 'text',
+                  required: true,
+                },
+              ],
+              required: true,
+            },
+            {
+              name: 'image',
+              label: 'Imagem de Compartilhamento (Open Graph)',
+              type: 'upload',
+              relationTo: 'media',
+              required: false,
+              admin: {
+                description:
+                  'Imagem que será exibida quando o site for compartilhado nas redes sociais. Tamanho recomendado: 1200x630px',
+              },
+            },
+          ],
+        },
       ],
     },
   ],

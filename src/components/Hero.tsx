@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { Container } from './container'
 import RichText from './RichText'
-import { Media } from './Media'
 import { Page } from '@/payload-types'
 import { Header } from './Header'
+import Image from 'next/image'
 
 export function Hero({ data }: { data: Page }) {
   return (
@@ -27,7 +27,7 @@ export function Hero({ data }: { data: Page }) {
 
         <div className="absolute bottom-0 -right-12 w-[825px] h-[685px] max-[1376px]:w-[725px] max-[1376px]:h-[573px] max-[1376px]:bottom-0  max-[1376px]:right-0  max-[1280px]:hidden">
           {data.hero.heroImage && typeof data.hero.heroImage !== 'string' && (
-            <Media fill priority resource={data.hero.heroImage} />
+            <Image src={data.hero.heroImage.url!} alt={data.hero.heroImage.alt} priority fill />
           )}
         </div>
       </Container>

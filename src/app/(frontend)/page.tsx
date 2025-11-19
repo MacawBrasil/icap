@@ -4,7 +4,6 @@ import React from 'react'
 import config from '@/payload.config'
 import './globals.css'
 import { Container } from '@/components/container'
-import { Media } from '@/components/Media'
 import Link from 'next/link'
 import RichText from '@/components/RichText'
 import { Exames } from '@/components/Exames'
@@ -20,6 +19,9 @@ import { FormContact } from '@/components/FormContact'
 import { StructureCarousel } from '@/components/StructureCarousel'
 import { Hero } from '@/components/Hero'
 import { DrSection } from '@/components/Dr-section'
+
+export const dynamic = 'force-static'
+export const revalidate = 600
 
 export default async function HomePage() {
   const payloadConfig = await config
@@ -49,7 +51,11 @@ export default async function HomePage() {
               <div className="mt-9 relative max-[1135px]:flex max-[1135px]:items-center max-[1135px]:gap-3">
                 <div className="relative w-[50px] h-[50px]">
                   {page.about.items[0].image && typeof page.about.items[0].image !== 'string' && (
-                    <Media fill priority resource={page.about.items[0].image} />
+                    <Image
+                      src={page.about.items[0].image.url!}
+                      fill
+                      alt={page.about.items[0].image.alt}
+                    />
                   )}
                 </div>
                 <span className="text-[#4EB8B9] font-medium text-2xl max-[768px]:text-xl">
@@ -84,7 +90,11 @@ export default async function HomePage() {
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[467px] h-[467px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(78,_184,_185,_0.80)_0%,_rgba(78,_184,_185,_0.00)_100%)]">
                   <div className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[432px] h-[427px] ">
                     {page.about.aboutImage && typeof page.about.aboutImage !== 'string' && (
-                      <Media fill priority resource={page.about.aboutImage} />
+                      <Image
+                        src={page.about.aboutImage.url!}
+                        alt={page.about.aboutImage.alt}
+                        fill
+                      />
                     )}
                   </div>
                 </div>
@@ -95,7 +105,11 @@ export default async function HomePage() {
               <div className="max-[1135px]:w-full relative max-[1135px]:flex max-[1135px]:items-center max-[1135px]:gap-3">
                 <div className="relative w-[50px] h-[50px]">
                   {page.about.items[1].image && typeof page.about.items[1].image !== 'string' && (
-                    <Media fill priority resource={page.about.items[1].image} />
+                    <Image
+                      src={page.about.items[1].image.url!}
+                      alt={page.about.items[1].image.alt!}
+                      fill
+                    />
                   )}
                 </div>
                 <span className="text-[#4EB8B9] font-medium text-2xl max-[768px]:text-xl">
@@ -129,7 +143,11 @@ export default async function HomePage() {
               <div className="mt-80 max-[1135px]:mt-10 relative max-[1281px]:mt-52 max-[1183px]:mt-24 max-[1135px]:flex max-[1135px]:items-center max-[1135px]:gap-3">
                 <div className="relative w-[50px] h-[50px]">
                   {page.about.items[2].image && typeof page.about.items[2].image !== 'string' && (
-                    <Media fill priority resource={page.about.items[2].image} />
+                    <Image
+                      src={page.about.items[2].image.url!}
+                      alt={page.about.items[2].image.alt!}
+                      fill
+                    />
                   )}
                 </div>
                 <span className="text-[#4EB8B9] font-medium text-2xl max-[768px]:text-xl">
