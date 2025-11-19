@@ -209,6 +209,41 @@ export const Page: GlobalConfig = {
           ],
         },
         {
+          name: 'aboutDoctor',
+          label: 'Sobre a Doutora',
+          fields: [
+            {
+              name: 'image',
+              label: 'Imagem',
+              type: 'upload',
+              relationTo: 'media',
+              required: true,
+            },
+            {
+              name: 'description',
+              label: 'Descrição',
+              type: 'richText',
+              editor: lexicalEditor({
+                features: ({ rootFeatures }) => {
+                  return [...rootFeatures]
+                },
+              }),
+              required: true,
+            },
+            {
+              name: 'description2',
+              label: 'Descrição 2',
+              type: 'richText',
+              editor: lexicalEditor({
+                features: ({ rootFeatures }) => {
+                  return [...rootFeatures]
+                },
+              }),
+              required: true,
+            },
+          ],
+        },
+        {
           name: 'certifications',
           label: 'Certificações',
           fields: [

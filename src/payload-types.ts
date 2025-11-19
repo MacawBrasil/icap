@@ -439,6 +439,39 @@ export interface Page {
       id?: string | null;
     }[];
   };
+  aboutDoctor: {
+    image: string | Media;
+    description: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+    description2: {
+      root: {
+        type: string;
+        children: {
+          type: any;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    };
+  };
   certifications: {
     certificationDescription: {
       root: {
@@ -603,6 +636,13 @@ export interface PageSelect<T extends boolean = true> {
               image?: T;
               id?: T;
             };
+      };
+  aboutDoctor?:
+    | T
+    | {
+        image?: T;
+        description?: T;
+        description2?: T;
       };
   certifications?:
     | T

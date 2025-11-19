@@ -19,6 +19,7 @@ import {
 import { FormContact } from '@/components/FormContact'
 import { StructureCarousel } from '@/components/StructureCarousel'
 import { Hero } from '@/components/Hero'
+import { DrSection } from '@/components/Dr-section'
 
 export default async function HomePage() {
   const payloadConfig = await config
@@ -40,12 +41,12 @@ export default async function HomePage() {
         <Exames data={page} />
         <section className="mt-28 pt-24 max-[768px]:mt-0">
           <Container className="flex justify-between max-[1135px]:flex-col max-[1135px]:items-center max-[1135px]:gap-10">
-            <div className="max-w-[300px] max-[1135px]:max-w-full max-[1135px]:w-full">
+            <div className="max-w-[300px] max-[1135px]:max-w-full max-[1135px]:w-full max-[1183px]:max-w-1/2">
               <h2 className="text-[#4EB8B9] text-4xl font-extrabold max-[768px]:text-2xl">
                 {page.about.aboutTitle}
               </h2>
               <RichText data={page.about.aboutDescription} className="text-[#333333] mt-4 mx-0" />
-              <div className="mt-9">
+              <div className="mt-9 relative max-[1135px]:flex max-[1135px]:items-center max-[1135px]:gap-3">
                 <div className="relative w-[50px] h-[50px]">
                   {page.about.items[0].image && typeof page.about.items[0].image !== 'string' && (
                     <Media fill priority resource={page.about.items[0].image} />
@@ -54,13 +55,34 @@ export default async function HomePage() {
                 <span className="text-[#4EB8B9] font-medium text-2xl max-[768px]:text-xl">
                   {page.about.items[0].title}
                 </span>
+                <div className="absolute -bottom-5 left-0 -z-10 max-[1183px]:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    className="absolute -bottom-1 left-0"
+                  >
+                    <circle cx="6" cy="6" r="5.5" fill="white" stroke="#BFBFBF" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="413"
+                    height="181"
+                    viewBox="0 0 413 181"
+                    fill="none"
+                  >
+                    <path d="M0 180H232C331.411 180 412 99.4113 412 0" stroke="#BFBFBF" />
+                  </svg>
+                </div>
               </div>
             </div>
 
-            <div className="relative max-[1135px]:hidden w-[627px] h-[627px] max-[1280px]:w-[500px] max-[1280px]:h-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(78,_184,_185,_0.80)_0%,_rgba(78,_184,_185,_0.00)_100%)]">
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center bg-white w-[561px] h-[561px] max-[1280px]:w-[461px] max-[1280px]:h-[461px] rounded-full border border-[#BFBFBF]">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[467px] h-[467px] max-[1280px]:w-[367px] max-[1280px]:h-[367px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(78,_184,_185,_0.80)_0%,_rgba(78,_184,_185,_0.00)_100%)]">
-                  <div className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[432px] h-[427px] max-[1280px]:w-[332px] max-[1280px]:h-[332px]">
+            <div className="relative max-[1183px]:hidden w-[627px] h-[627px] max-[1280px]:w-[500px] max-[1280px]:h-[500px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(78,_184,_185,_0.80)_0%,_rgba(78,_184,_185,_0.00)_100%)]">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center bg-white w-[561px] h-[561px] rounded-full border border-[#BFBFBF]">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[467px] h-[467px] rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,_rgba(78,_184,_185,_0.80)_0%,_rgba(78,_184,_185,_0.00)_100%)]">
+                  <div className="absolute  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  w-[432px] h-[427px] ">
                     {page.about.aboutImage && typeof page.about.aboutImage !== 'string' && (
                       <Media fill priority resource={page.about.aboutImage} />
                     )}
@@ -70,7 +92,7 @@ export default async function HomePage() {
             </div>
 
             <div className="max-w-[300px] mt-20 max-[1135px]:max-w-full max-[1135px]:mt-0 max-[1135px]:w-full">
-              <div className="max-[1135px]:w-full">
+              <div className="max-[1135px]:w-full relative max-[1135px]:flex max-[1135px]:items-center max-[1135px]:gap-3">
                 <div className="relative w-[50px] h-[50px]">
                   {page.about.items[1].image && typeof page.about.items[1].image !== 'string' && (
                     <Media fill priority resource={page.about.items[1].image} />
@@ -79,8 +101,32 @@ export default async function HomePage() {
                 <span className="text-[#4EB8B9] font-medium text-2xl max-[768px]:text-xl">
                   {page.about.items[1].title}
                 </span>
+                <div className="absolute -bottom-5 right-0 -z-10 max-[1183px]:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    className="absolute -bottom-1 right-0"
+                  >
+                    <circle cx="6" cy="6" r="5.5" fill="white" stroke="#BFBFBF" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="626"
+                    height="181"
+                    viewBox="0 0 626 181"
+                    fill="none"
+                  >
+                    <path
+                      d="M625.5 180H180.5C81.0887 180 0.500005 99.4113 0.500005 0"
+                      stroke="#BFBFBF"
+                    />
+                  </svg>
+                </div>
               </div>
-              <div className="mt-60 max-[1135px]:mt-10">
+              <div className="mt-80 max-[1135px]:mt-10 relative max-[1281px]:mt-52 max-[1183px]:mt-24 max-[1135px]:flex max-[1135px]:items-center max-[1135px]:gap-3">
                 <div className="relative w-[50px] h-[50px]">
                   {page.about.items[2].image && typeof page.about.items[2].image !== 'string' && (
                     <Media fill priority resource={page.about.items[2].image} />
@@ -89,6 +135,30 @@ export default async function HomePage() {
                 <span className="text-[#4EB8B9] font-medium text-2xl max-[768px]:text-xl">
                   {page.about.items[2].title}
                 </span>
+                <div className="absolute -bottom-5 right-0 -z-10 max-[1183px]:hidden">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                    className="absolute -bottom-1 right-0"
+                  >
+                    <circle cx="6" cy="6" r="5.5" fill="white" stroke="#BFBFBF" />
+                  </svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="626"
+                    height="181"
+                    viewBox="0 0 626 181"
+                    fill="none"
+                  >
+                    <path
+                      d="M625.5 180H180.5C81.0887 180 0.500005 99.4113 0.500005 0"
+                      stroke="#BFBFBF"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
           </Container>
@@ -103,10 +173,10 @@ export default async function HomePage() {
         </section>
       </section>
 
-      {/* Section que o designer me fodeu */}
+      <DrSection data={page} />
 
       {/*convenios*/}
-      <section className="w-full mt-16">
+      <section className="w-full mt-36 max-[600px]:mt-20">
         <Container>
           <span className="text-[#4EB8B9] text-2xl font-medium max-[768px]:text-base">
             Atendemos aos principais
@@ -219,7 +289,7 @@ export default async function HomePage() {
                           </clipPath>
                         </defs>
                       </svg>
-                      <span className="font-semibold text-[#27233F] text-xl max-[600px]:text-base">
+                      <span className="font-semibold text-[#27233F] text-xl max-[600px]:text-sm">
                         {item.question}
                       </span>
                     </div>
