@@ -34,6 +34,14 @@ export default async function HomePage() {
 
   return (
     <>
+      <a
+        href={`https://wa.me/${page.contact.whatsapp.replace(/\D/g, '')}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-20 h-20 fixed top-[600px] right-24 z-50 max-[1025px]:right-4 max-[600px]:top-3/4 max-[600px]:w-14"
+      >
+        <Image src={'/whatsapp.svg'} fill alt="Logo Whatsapp" className="object-contain" />
+      </a>
       <Hero data={page} />
 
       <section className="relative w-full pb-10">

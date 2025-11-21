@@ -45,7 +45,7 @@ export function Header({ data }: HeaderProps) {
   }, [])
 
   return (
-    <div className="fixed top-0 z-50 w-full">
+    <div className="fixed top-0 z-40 w-full">
       {/* Barra Superior */}
       <div className="w-full bg-[#27233F] h-10">
         <Container className="flex items-center justify-end h-full gap-12">
@@ -117,7 +117,7 @@ export function Header({ data }: HeaderProps) {
               </svg>
             </a>
             <a
-              href={data.contact.whatsapp}
+              href={`https://wa.me/${data.contact.whatsapp.replace(/\D/g, '')}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-white text-xs max-md:hidden"
@@ -141,7 +141,7 @@ export function Header({ data }: HeaderProps) {
                   </clipPath>
                 </defs>
               </svg>
-              {data.contact.whatsapp.replace(/\D/g, '')}
+              {data.contact.whatsapp}
             </a>
           </div>
 
