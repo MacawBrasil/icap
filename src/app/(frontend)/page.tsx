@@ -19,6 +19,12 @@ import { FormContact } from '@/components/FormContact'
 import { StructureCarousel } from '@/components/StructureCarousel'
 import { Hero } from '@/components/Hero'
 import { DrSection } from '@/components/Dr-section'
+import {
+  Marquee,
+  MarqueeContent,
+  MarqueeFade,
+  MarqueeItem,
+} from '@/components/ui/shadcn-io/marquee'
 
 export const dynamic = 'force-static'
 export const revalidate = 600
@@ -49,7 +55,7 @@ export default async function HomePage() {
           <Image src={'/fundo.png'} fill alt="Fundo" className=" object-cover" />
         </div>
         <Exames data={page} />
-        <section className="mt-28 pt-24 max-[768px]:mt-0">
+        <section className="mt-28 pt-24 max-[768px]:mt-0" id="sobre">
           <Container className="flex justify-between max-[1135px]:flex-col max-[1135px]:items-center max-[1135px]:gap-10">
             <div className="max-w-[300px] max-[1135px]:max-w-full max-[1135px]:w-full max-[1183px]:max-w-1/2">
               <h2 className="text-[#4EB8B9] text-4xl font-extrabold max-[768px]:text-2xl">
@@ -209,34 +215,28 @@ export default async function HomePage() {
           </span>
           <h4 className="text-[#4EB8B9] text-4xl font-extrabold max-[768px]:text-2xl">Convênios</h4>
         </Container>
-        <Carousel
-          className="mt-10"
-          opts={{
-            align: 'start',
-            loop: true,
-          }}
-        >
-          <CarouselContent>
-            {page.about.agreements.map((item, index) => (
-              <CarouselItem
-                key={index}
-                className="basis-[calc(100%/2.5)] sm:basis-1/2 md:basis-1/3 lg:basis-1/5 xl:basis-1/6 2xl:basis-[calc(100%/6.5)] bg-white"
-              >
-                <div className="relative w-full h-[164px] flex items-center justify-center">
+
+        <div className="flex w-full items-center justify-center mt-10">
+          <Marquee>
+            <MarqueeFade side="left" />
+            <MarqueeFade side="right" />
+            <MarqueeContent>
+              {page.about.agreements.map((item, index) => (
+                <MarqueeItem className="h-40 w-40 relative" key={index}>
                   {item.image && typeof item.image !== 'string' && (
                     <Image
                       src={item.image.url!}
                       alt={'Convenio'}
-                      width={164}
-                      height={164}
+                      fill
                       className="object-contain"
+                      quality={100}
                     />
                   )}
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+                </MarqueeItem>
+              ))}
+            </MarqueeContent>
+          </Marquee>
+        </div>
       </section>
 
       {/*Certificados*/}
@@ -265,7 +265,7 @@ export default async function HomePage() {
                   value={`item-${index + 1}`}
                   className="border-none bg-white rounded-[10px] shadow-[0_5px_30px_0_rgba(78,184,185,0.50)] overflow-hidden"
                 >
-                  <AccordionTrigger className="py-5 px-8 hover:no-underline data-[state=open]:rounded-b-none">
+                  <AccordionTrigger className="py-5 px-8 hover:no-underline data-[state=open]:rounded-b-none cursor-pointer">
                     <div className="flex items-center gap-2.5">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -332,7 +332,10 @@ export default async function HomePage() {
 
       {/* Contato */}
 
-      <section className="relative w-full h-[750px] bg-custom-gradient max-[900px]:h-fit max-[900px]:py-10 max-[900px]:mt-10">
+      <section
+        className="relative w-full h-[750px] bg-custom-gradient max-[900px]:h-fit max-[900px]:py-10 max-[900px]:mt-10"
+        id="contato"
+      >
         <Container className="flex w-full justify-between mt-36 max-[900px]:flex-col max-[900px]:mt-0 max-[900px]:gap-10 max-[900px]:items-center">
           <div className="flex flex-col items-start max-w-[413px] max-[900px]:max-w-full">
             <h5 className="text-[#4EB8B9] text-4xl font-extrabold max-w-[350px] max-[900px]:max-w-full max-[768px]:text-2xl">
@@ -535,7 +538,20 @@ export default async function HomePage() {
             )}
 
             <Link href={'/'} className="mt-16">
-              <Image src={'/logo-icap-branco.svg'} alt="" width={219} height={50} />
+              <Image
+                src={'/logo-icap-branco.svg'}
+                alt=""
+                width={219}
+                height={50}
+                className="hidden lg:block"
+              />
+              <Image
+                src={'/logo-icap-colorido.svg'}
+                alt=""
+                width={219}
+                height={50}
+                className="block lg:hidden"
+              />
             </Link>
           </div>
 

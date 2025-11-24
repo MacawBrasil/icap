@@ -18,8 +18,8 @@ export function Hero({ data }: { data: Page }) {
           <p className="text-[#666666]">{data.hero.heroDescription}</p>
 
           <Link
-            href={'contato'}
-            className="text-white font-semibold text-xl px-20 py-3 bg-[#4EB8B9] rounded-[50px] mt-5 max-sm:text-base max-sm:px-10"
+            href={'#contato'}
+            className="text-white font-semibold text-xl px-20 border py-3 bg-[#4EB8B9] transition rounded-[50px] mt-5 max-sm:text-base max-sm:px-10 hover:bg-transparent hover:text-[#4EB8B9] hover:border-[#4EB8B9]"
           >
             Entre em contato
           </Link>

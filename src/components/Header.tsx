@@ -174,9 +174,7 @@ export function Header({ data }: HeaderProps) {
       >
         <Container className="flex items-center justify-between">
           <Link href={'/'} className="relative w-[222px] h-[55px] max-md:w-[150px] max-md:h-[37px]">
-            {data.header.logo && typeof data.header.logo !== 'string' && (
-              <Image src={data.header.logo.url} alt="Logo" width={222} height={55} />
-            )}
+            <Image src={'/logo-icap-colorido.svg'} alt="" width={219} height={50} />
           </Link>
 
           {/* Menu Desktop - oculto em telas < 768px */}

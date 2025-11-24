@@ -72,37 +72,38 @@ export function MobileMenu({ items, linkMedico, linkPaciente }: MobileMenuProps)
           </div>
 
           {/* Itens do Menu */}
-          <ul className="flex-1 overflow-y-auto py-4">
-            {items.map((item, index) => (
-              <li key={index}>
-                <Link
-                  href={item.href}
-                  onClick={closeMenu}
-                  className="block px-6 py-3 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className="flex items-center gap-12 p-10">
-            <a
-              href={linkMedico}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#4EB8B9] text-xs"
-            >
-              Acesso Médico
-            </a>
-            <a
-              href={linkPaciente}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#4EB8B9] text-xs"
-            >
-              Acesso Paciente
-            </a>
+          <div className="flex-1 overflow-y-auto py-4">
+            <ul className="space-y-6">
+              {items.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    href={item.href}
+                    onClick={closeMenu}
+                    className="block px-6 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="p-6 flex flex-col border-t border-border mt-4">
+              <a
+                href={linkMedico}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#4EB8B9] text-xs py-2"
+              >
+                Acesso Médico
+              </a>
+              <a
+                href={linkPaciente}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#4EB8B9] text-xs py-2"
+              >
+                Acesso Paciente
+              </a>
+            </div>
           </div>
         </div>
       </nav>

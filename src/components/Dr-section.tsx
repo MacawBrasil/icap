@@ -10,11 +10,11 @@ interface DrSectionProps {
 export function DrSection({ data }: DrSectionProps) {
   const { aboutDoctor } = data
   return (
-    <div className="w-full h-[988px] relative max-[600px]:h-fit">
-      <div className="w-full h-5 bg-white absolute top-1/2 left-0 -translate-y-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] max-[600px]:hidden"></div>
-      <div className="w-full h-1/2 bg-[linear-gradient(0deg,_#4EB8B9_-40%,_#FFF_100%)] max-[600px]:hidden"></div>
+    <div className="w-full h-[988px] relative max-[1024px]:h-auto">
+      <div className="w-full h-5 bg-white absolute top-1/2 left-0 -translate-y-1/2 shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)] max-[1024px]:hidden"></div>
+      <div className="w-full h-1/2 bg-[linear-gradient(0deg,_#4EB8B9_-40%,_#FFF_100%)] max-[1024px]:hidden"></div>
 
-      <Container className="absolute top-0 left-1/2 -translate-x-1/2 h-full flex items-center justify-between gap-10 max-[600px]:h-fit max-[600px]:static max-[600px]:-translate-0">
+      <Container className="absolute top-0 left-1/2 -translate-x-1/2 h-full flex items-center justify-between gap-10 max-[1024px]:h-fit max-[1024px]:static max-[1024px]:-translate-0">
         {aboutDoctor.image && typeof aboutDoctor.image !== 'string' && (
           <div className="relative w-full max-w-[580px] h-auto max-[1024px]:hidden">
             <Image
@@ -27,7 +27,7 @@ export function DrSection({ data }: DrSectionProps) {
           </div>
         )}
 
-        <div className="h-full max-w-[632px]">
+        <div className="h-full max-w-[632px] max-[1024px]:max-w-full">
           <div className="mt-14">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,19 @@ export function DrSection({ data }: DrSectionProps) {
             />
           </div>
 
-          <div className="mt-48 max-[600px]:mt-10">
+          {aboutDoctor.image && typeof aboutDoctor.image !== 'string' && (
+            <div className="relative w-full max-w-[580px] h-auto hidden max-[1024px]:block my-10">
+              <Image
+                src={aboutDoctor.image.url!}
+                width={580}
+                height={858}
+                alt=""
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          )}
+
+          <div className="mt-48 max-[1024px]:mt-0">
             <p className="text-[#4EB8B9] font-medium text-2xl">Dra.</p>
             <p className="text-[#4EB8B9] font-extrabold text-4xl">Karina Bueno Salgado</p>
             <p className="text-[#4EB8B9] font-medium text-2xl">Karina Bueno Salgado</p>

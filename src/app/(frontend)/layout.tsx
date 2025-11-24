@@ -4,6 +4,7 @@ import { Wix_Madefor_Text } from 'next/font/google'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import type { Metadata } from 'next'
+import { Toaster } from '@/components/ui/sonner'
 
 const WixFont = Wix_Madefor_Text({
   subsets: ['latin'],
@@ -76,6 +77,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     <html lang="pt-BR">
       <body className={WixFont.className}>
         <main>{children}</main>
+        <Toaster />
       </body>
     </html>
   )

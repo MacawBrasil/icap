@@ -154,7 +154,7 @@ export function FormContact({ terms }: FormContactProps) {
         </div>
         <Button
           type="submit"
-          className="w-full h-11 bg-[#4EB8B9] hover:bg-[#4EB8B9] cursor-pointer"
+          className="w-full h-11 bg-[#4EB8B9] border transition cursor-pointer hover:bg-transparent hover:text-[#4EB8B9] hover:border-[#4EB8B9]"
         >
           {' '}
           {formState.isSubmitting ? 'Enviando...' : 'Enviar mensagem'}

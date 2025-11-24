@@ -28,9 +28,9 @@ export function Exames({ data }: ExamesProps) {
             <AccordionItem
               key={item.id || index}
               value={`item-${index + 1}`}
-              className="border-none bg-white rounded-[10px] shadow-[0_5px_30px_0_rgba(78,184,185,0.50)] overflow-hidden"
+              className="border-none bg-white rounded-[10px] shadow-[0_5px_30px_0_rgba(78,184,185,0.50)] overflow-hidden "
             >
-              <AccordionTrigger className="py-5 px-8 hover:no-underline data-[state=open]:rounded-b-none font-semibold text-[#27233F] text-xl max-[768px]:text-base">
+              <AccordionTrigger className="py-5 px-8 hover:no-underline data-[state=open]:rounded-b-none font-semibold text-[#27233F] text-xl max-[768px]:text-base cursor-pointer">
                 {item.title}
               </AccordionTrigger>
               <AccordionContent className="px-8 pb-5 pt-0">
