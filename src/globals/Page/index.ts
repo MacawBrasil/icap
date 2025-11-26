@@ -36,6 +36,9 @@ export const Page: GlobalConfig = {
               type: 'upload',
               relationTo: 'media',
               required: true,
+              admin: {
+                description: 'Dimensão 219x50',
+              },
             },
           ],
         },
@@ -66,6 +69,9 @@ export const Page: GlobalConfig = {
               type: 'upload',
               relationTo: 'media',
               required: true,
+              admin: {
+                description: 'Dimensão 825x685',
+              },
             },
           ],
         },
@@ -96,6 +102,9 @@ export const Page: GlobalConfig = {
                   type: 'upload',
                   relationTo: 'media',
                   required: true,
+                  admin: {
+                    description: 'Dimensão 32x32',
+                  },
                 },
                 {
                   name: 'title',
@@ -158,6 +167,9 @@ export const Page: GlobalConfig = {
               type: 'upload',
               relationTo: 'media',
               required: true,
+              admin: {
+                description: 'Dimensão 432x427',
+              },
             },
             {
               name: 'items',
@@ -173,6 +185,9 @@ export const Page: GlobalConfig = {
                   type: 'upload',
                   relationTo: 'media',
                   required: true,
+                  admin: {
+                    description: 'Dimensão 50x50',
+                  },
                 },
               ],
             },
@@ -188,6 +203,9 @@ export const Page: GlobalConfig = {
                   type: 'upload',
                   relationTo: 'media',
                   required: true,
+                  admin: {
+                    description: 'Dimensão 413x250',
+                  },
                 },
               ],
             },
@@ -203,6 +221,9 @@ export const Page: GlobalConfig = {
                   type: 'upload',
                   relationTo: 'media',
                   required: true,
+                  admin: {
+                    description: 'Dimensão 164x164',
+                  },
                 },
               ],
             },
@@ -218,6 +239,9 @@ export const Page: GlobalConfig = {
               type: 'upload',
               relationTo: 'media',
               required: true,
+              admin: {
+                description: 'Dimensão 584x862',
+              },
             },
             {
               name: 'description',
@@ -315,6 +339,9 @@ export const Page: GlobalConfig = {
               type: 'upload',
               relationTo: 'media',
               required: true,
+              admin: {
+                description: 'Dimensão 220x50',
+              },
             },
             {
               name: 'footerTitle',

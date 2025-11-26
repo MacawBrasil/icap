@@ -329,6 +329,9 @@ export interface Page {
   header: {
     doctorAccess: string;
     patientAccess: string;
+    /**
+     * Dimensão 219x50
+     */
     logo: string | Media;
   };
   hero: {
@@ -348,6 +351,9 @@ export interface Page {
       [k: string]: unknown;
     };
     heroDescription: string;
+    /**
+     * Dimensão 825x685
+     */
     heroImage: string | Media;
   };
   exams: {
@@ -367,6 +373,9 @@ export interface Page {
       [k: string]: unknown;
     };
     itens: {
+      /**
+       * Dimensão 32x32
+       */
       icon: string | Media;
       title: string;
       description: {
@@ -386,12 +395,18 @@ export interface Page {
       };
       mediaLayout: (
         | {
+            /**
+             * Dimensão 847x440 | Tamanho máximo 10MB
+             */
             file: string | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'Video';
           }
         | {
+            /**
+             * Dimensão 847x440
+             */
             file: string | Media;
             id?: string | null;
             blockName?: string | null;
@@ -424,22 +439,37 @@ export interface Page {
       };
       [k: string]: unknown;
     };
+    /**
+     * Dimensão 432x427
+     */
     aboutImage: string | Media;
     items: {
       title: string;
+      /**
+       * Dimensão 50x50
+       */
       image: string | Media;
       id?: string | null;
     }[];
     structure: {
+      /**
+       * Dimensão 413x250
+       */
       image: string | Media;
       id?: string | null;
     }[];
     agreements: {
+      /**
+       * Dimensão 164x164
+       */
       image: string | Media;
       id?: string | null;
     }[];
   };
   aboutDoctor: {
+    /**
+     * Dimensão 584x862
+     */
     image: string | Media;
     description: {
       root: {
@@ -515,6 +545,9 @@ export interface Page {
     }[];
   };
   footer: {
+    /**
+     * Dimensão 220x50
+     */
     footerLogo: string | Media;
     footerTitle: string;
     footerDescription: string;

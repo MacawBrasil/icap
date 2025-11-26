@@ -9,6 +9,9 @@ export const ImageBlock: Block = {
       type: 'upload',
       relationTo: 'media',
       required: true,
+      admin: {
+        description: 'Dimensão 847x440',
+      },
     },
   ],
 }
