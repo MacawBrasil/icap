@@ -11,8 +11,6 @@ const WixFont = Wix_Madefor_Text({
   style: ['normal'],
 })
 
-export const dynamic = 'force-dynamic'
-
 export async function generateMetadata(): Promise<Metadata> {
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })

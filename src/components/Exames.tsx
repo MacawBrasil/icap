@@ -22,7 +22,6 @@ export function Exames({ data }: ExamesProps) {
           type="single"
           collapsible
           className="w-full space-y-4 max-w-[847px] max-[1279px]:max-w-[647px] max-[1079px]:max-w-full"
-          defaultValue="item-1"
         >
           {data.exams.itens.map((item, index) => (
             <AccordionItem

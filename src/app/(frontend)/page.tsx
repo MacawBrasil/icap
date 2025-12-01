@@ -8,7 +8,6 @@ import Link from 'next/link'
 import RichText from '@/components/RichText'
 import { Exames } from '@/components/Exames'
 import Image from 'next/image'
-import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import {
   Accordion,
   AccordionContent,
@@ -51,9 +50,16 @@ export default async function HomePage() {
       <Hero data={page} />
 
       <section className="relative w-full pb-10">
-        <div className="absolute top-0 left-0 h-[1080px] w-full -z-10">
-          <Image src={'/fundo.png'} fill alt="Fundo" className=" object-cover" />
-        </div>
+        <div className="absolute w-full h-[1080px] top-0 left-0 -z-10 bg-linear-to-b from-0% from-white via-50% via-transparent to-100% to-white"></div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 h-[1080px] w-full -z-20 object-cover opacity-50"
+        >
+          <source src="/video-exames.mp4" type="video/mp4" />
+        </video>
         <Exames data={page} />
         <section className="mt-28 pt-24 max-[768px]:mt-0" id="sobre">
           <Container className="flex justify-between max-[1135px]:flex-col max-[1135px]:items-center max-[1135px]:gap-10">
@@ -333,9 +339,20 @@ export default async function HomePage() {
       {/* Contato */}
 
       <section
-        className="relative w-full h-[750px] bg-custom-gradient max-[900px]:h-fit max-[900px]:py-10 max-[900px]:mt-10"
+        className="relative w-full h-[750px] max-[900px]:h-fit max-[900px]:py-10 max-[900px]:mt-10"
         id="contato"
       >
+        <div className="absolute w-full h-full top-0 left-0 -z-10 bg-linear-to-b from-0% from-white to-100% to-transparent"></div>
+        <div className="absolute w-full h-[146px] bottom-0 left-0 -z-10 bg-linear-to-t from-0% from-[#4EB8B9] to-100% to-transparent"></div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute top-0 left-0 h-full w-full -z-20 object-cover object-top opacity-50"
+        >
+          <source src="/video-contato.mp4" type="video/mp4" />
+        </video>
         <Container className="flex w-full justify-between mt-36 max-[900px]:flex-col max-[900px]:mt-0 max-[900px]:gap-10 max-[900px]:items-center">
           <div className="flex flex-col items-start max-w-[413px] max-[900px]:max-w-full">
             <h5 className="text-[#4EB8B9] text-4xl font-extrabold max-w-[350px] max-[900px]:max-w-full max-[768px]:text-2xl">
