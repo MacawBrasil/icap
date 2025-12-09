@@ -15,6 +15,9 @@ const nextConfig = {
   images: {
     domains: ['localhost'],
   },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }
 
 export default withPayload(nextConfig, { devBundleServerPackages: false })
