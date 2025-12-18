@@ -252,7 +252,7 @@ export default async function HomePage() {
           <RichText data={page.certifications.certificationDescription} className="text-white" />
         </div>
         <div className="bg-linear-to-r from-[#4EB8B9] to-[#3F77EE] col-span-1 p-10 rounded-[30px] flex items-center justify-center">
-          <Image src="/certificado.png" width={197} height={188} alt="" />
+          <Image src="/selo.png" width={197} height={188} alt="" />
         </div>
       </Container>
 
@@ -543,16 +543,23 @@ export default async function HomePage() {
               <span className="text-[#333333]">/patologiaicap</span>
             </div>
 
-            {page.footer.privacyPolicy && typeof page.footer.privacyPolicy !== 'string' && (
-              <a
-                href={page.footer.privacyPolicy.url!}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#27233F] mt-16"
-              >
-                Política de privacidade
-              </a>
-            )}
+            {page.footer.documents &&
+              page.footer.documents.map((document) => {
+                if (document.document && typeof document.document !== 'string') {
+                  return (
+                    <a
+                      key={document.id}
+                      href={document.document.url!}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[#27233F] mt-16"
+                    >
+                      {document.title}
+                    </a>
+                  )
+                }
+                return null
+              })}
 
             <Link href={'/'} className="mt-16">
               <Image
@@ -574,9 +581,9 @@ export default async function HomePage() {
 
           <FormContact
             terms={
-              page.footer.privacyPolicy &&
-              typeof page.footer.privacyPolicy !== 'string' &&
-              page.footer.privacyPolicy.url
+              page.footer.useTerms &&
+              typeof page.footer.useTerms !== 'string' &&
+              page.footer.useTerms.url
             }
           />
         </Container>

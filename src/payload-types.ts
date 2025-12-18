@@ -551,7 +551,17 @@ export interface Page {
     footerLogo: string | Media;
     footerTitle: string;
     footerDescription: string;
-    privacyPolicy: string | Media;
+    useTerms: string | Media;
+    documents?:
+      | {
+          /**
+           * PDF
+           */
+          document: string | Media;
+          title: string;
+          id?: string | null;
+        }[]
+      | null;
     terms: string | Media;
   };
   contact: {
@@ -717,7 +727,14 @@ export interface PageSelect<T extends boolean = true> {
         footerLogo?: T;
         footerTitle?: T;
         footerDescription?: T;
-        privacyPolicy?: T;
+        useTerms?: T;
+        documents?:
+          | T
+          | {
+              document?: T;
+              title?: T;
+              id?: T;
+            };
         terms?: T;
       };
   contact?:

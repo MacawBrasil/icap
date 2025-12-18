@@ -356,11 +356,34 @@ export const Page: GlobalConfig = {
               required: true,
             },
             {
-              name: 'privacyPolicy',
-              label: 'Política de Privacidade',
+              name: 'useTerms',
+              label: 'Termos de Uso',
               type: 'upload',
               relationTo: 'media',
               required: true,
+            },
+            {
+              name: 'documents',
+              label: 'Documentos',
+              type: 'array',
+              fields: [
+                {
+                  name: 'document',
+                  label: 'Documento',
+                  type: 'upload',
+                  relationTo: 'media',
+                  required: true,
+                  admin: {
+                    description: 'PDF',
+                  },
+                },
+                {
+                  name: 'title',
+                  label: 'Título',
+                  type: 'text',
+                  required: true,
+                },
+              ],
             },
             {
               name: 'terms',
