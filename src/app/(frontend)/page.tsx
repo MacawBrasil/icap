@@ -477,7 +477,7 @@ export default async function HomePage() {
               </a>
             </div>
 
-            <div className="flex items-end gap-3.5 mt-8">
+            <div className="flex items-end gap-3.5 mt-8 mb-16">
               <a href={page.social.facebook} target="_blank" rel="noopener noreferrer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -552,7 +552,7 @@ export default async function HomePage() {
                       href={document.document.url!}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-[#27233F] mt-16"
+                      className="text-[#27233F] "
                     >
                       {document.title}
                     </a>
