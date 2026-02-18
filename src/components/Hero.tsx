@@ -9,7 +9,7 @@ export function Hero({ data }: { data: Page }) {
   return (
     <div className="bg-[radial-gradient(67.18%_67.18%_at_50%_0%,_#78B7B8_0%,_#FFF_100%)]">
       <Header data={data} />
-      <Container className="relative h-[850px] overflow-hidden max-[1376px]:h-[700px] max-[600px]:h-[600px]">
+      <Container className="relative h-[850px] max-[1376px]:h-[700px] max-[600px]:h-[600px]">
         <div className="flex flex-col items-start h-full pt-64 gap-2.5 max-[768px]:pt-0  max-[768px]:justify-center">
           <RichText
             data={data.hero.heroTitle}
