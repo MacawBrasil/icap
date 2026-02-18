@@ -1,8 +1,9 @@
-import { Page } from '@/payload-types'
+import Image from 'next/image'
+import { youtubeEmbed } from '@/lib/utils'
+import type { Page } from '@/payload-types'
 import { Container } from './container'
 import RichText from './RichText'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './ui/accordion'
-import Image from 'next/image'
 
 interface ExamesProps {
   data: Page
@@ -82,7 +83,7 @@ export function Exames({ data }: ExamesProps) {
                               className="relative w-full h-[441px] rounded-lg overflow-hidden"
                             >
                               <iframe
-                                src={block.url}
+                                src={youtubeEmbed(block.url)}
                                 className="w-full h-full"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
